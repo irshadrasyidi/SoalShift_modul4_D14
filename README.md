@@ -13,3 +13,11 @@
 - Belum selesai :(
 - Karena terlalu lama saat mengerjakan fungsi `listDir()` untuk nomor 1, karena bingung bagaimana mengkombinasi proses rekursi yang masuk ke dalam subfolder2 dengan tetap memperhatikan proses enkripsi namanya
 - Juga sempat bingung lama dimana menyelipkan fungsi dekripnya waktu di 3 fungsi untuk FUSE
+
+# Revisi
+## Soal 3:
+- Digunakan 2 library #include <pwd.h> dan #include <grp.h> untuk ambil username dan group.
+- Digunakan juga library #include <time.h> untuk mengambil waktu sistem (untuk pencatatan ke filemiris.txt)
+- Pada fungsi fuse xmp_readdir, tambahkan beberapa `if` untuk mengecek username, group, serta filenya harus tidak bisa dibaca
+- Jika kriteria `if` berikut terpenuhi, maka catat informasi2 file tersebut ke sebuah string yang kemudian dicatatkan ke filemiris.txt
+- Lalu, di bagian akhir `if`, hapus file tersebut dengan fungsi `remove()`
