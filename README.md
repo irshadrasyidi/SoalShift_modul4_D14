@@ -19,5 +19,10 @@
 - Digunakan 2 library #include <pwd.h> dan #include <grp.h> untuk ambil username dan group.
 - Digunakan juga library #include <time.h> untuk mengambil waktu sistem (untuk pencatatan ke filemiris.txt)
 - Pada fungsi fuse xmp_readdir, tambahkan beberapa `if` untuk mengecek username, group, serta filenya harus tidak bisa dibaca
-- Jika kriteria `if` berikut terpenuhi, maka catat informasi2 file tersebut ke sebuah string yang kemudian dicatatkan ke filemiris.txt
+- Jika kriteria `if` berikut terpenuhi (user: chipset / ic_controller, group: rusak, file tidak bisa dibaca), maka catat informasi2 file tersebut ke sebuah string yang kemudian dicatatkan ke filemiris.txt
 - Lalu, di bagian akhir `if`, hapus file tersebut dengan fungsi `remove()`
+
+## Soal 4:
+- Pada fungsi xmp_readdir, ada pengecekan yang jika pathnya menunjuk ke `/@ZA>AXio/` (folder youtube), maka mode di fungsi `mkdir()`-nya diset 0750
+- Lalu, pada fungsi xmp_create, ada pengecekan yang jika pathnya menunjuk ke `/@ZA>AXio/` (folder youtube), maka path-nya di-strcat dengan `.iz1`, tetapi yg versi enkripsi, supaya file-file yang terbuat ketambahan ekstensi iz1
+- Lalu, pada fungsi xmp_create, ada pengecekan yang jika pathnya menunjuk ke `/@ZA>AXio/` (folder youtube), maka dibuatkan sebuah exec yang mengeluarkan warning jika ada yang ingin meng-chmod file dengan ekstensi .iz1
